@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: 1. Python (podstawy) - wprowadzenie
+chapters:
+- file: 2. Python (podstawy) - funkcje, zmienne i typy danych
+- file: 3. Python (podstawy) - złożone typy danych
+- file: 4. Python (podstawy) - kontrola przepływu
+- file: Zadania do części 2
+- file: Zadania do części 3
+- file: Zadania do części 4
+- file: Dodatek 1 Jak pracować z Pythonem w domu
+- file: Dodatek 2. Jak rozwiązywać problemy z kodem szybciej i lepiej
