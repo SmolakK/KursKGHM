@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Python - funkcje, zmienne i typy danych &#8212; Kursy Python 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2. Python (podstawy) - funkcje, zmienne i typy danych';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Python - złożone typy danych" href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html" />
+    <link rel="prev" title="1. Python - kurs wprowadzający" href="1.%20Python%20%28podstawy%29%20-%20wprowadzenie.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="1.%20Python%20%28podstawy%29%20-%20wprowadzenie.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Python%20%28podstawy%29%20-%20wprowadzenie.html">
+                    1. Python - kurs wprowadzający
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Python - funkcje, zmienne i typy danych</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html">3. Python - złożone typy danych</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4.%20Python%20%28podstawy%29%20-%20kontrola%20przep%C5%82ywu.html">4. Python (podstawy) - Kontrola przepływu</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%202.html">Zadania do części 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%203.html">Zadania do części 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%204.html">Zadania do części 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dodatek%201%20Jak%20pracowa%C4%87%20z%20Pythonem%20w%20domu.html">Dodatek 1. Jak uruchomić Pythona?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dodatek%202.%20Jak%20rozwi%C4%85zywa%C4%87%20problemy%20z%20kodem%20szybciej%20i%20lepiej.html">Dodatek 2. Jak rozwiązywać swoje problemy szybciej i lepiej?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F2. Python (podstawy) - funkcje, zmienne i typy danych.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/2. Python (podstawy) - funkcje, zmienne i typy danych.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2. Python - funkcje, zmienne i typy danych</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Python - funkcje, zmienne i typy danych</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deklaracja-zmiennej">Deklaracja zmiennej</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje-oraz-metody">Funkcje oraz Metody</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsza-funkcja">Pierwsza funkcja</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-zmiennych">Typy zmiennych</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#druga-funkcja">Druga funkcja</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operatory-logiczne">Operatory logiczne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ćwiczenie:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ćwiczenie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdy-uzywamy-nowej-nieznanej-nam-biblioteki-kluczowe-jest-poznanie-jej-dokumentacji">Gdy używamy nowej, nieznanej nam biblioteki - kluczowe jest poznanie jej dokumentacji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jak-sprwadzic-czy-potrzebna-nam-funkcjonalnosc-juz-ktos-kiedys-napisal">Jak sprwadzić czy potrzebną nam funkcjonalność już ktoś kiedyś napisał?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#komentowanie-kodu">Komentowanie kodu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komentarze-blokowe">Komentarze blokowe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentarze-docstring">Komentarze “docstring”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-funkcje-zmienne-i-typy-danych">
+<h1>2. Python - funkcje, zmienne i typy danych<a class="headerlink" href="#python-funkcje-zmienne-i-typy-danych" title="Permalink to this heading">#</a></h1>
+<p>Rozpoczynamy od podstaw Pythona.</p>
+<p>Najpierw jednak musicie wiedzieć, że Python jest <b> językiem obiektowym </b> to znaczy, że nastawiony jest pisanie kodu w stylu, w którym rzeczywistość reprezentujemy jako <b> obiekty </b>. Z założenia mają one reprezentować elementy świata rzeczywistego.</p>
+<p><b> Na przykład </b>:</p>
+<p>Jeśli piszemy kod obsługujący konta bankowe w banku, stworzymy <b> obiekty które reprezentują konta bankowe </b> i które będą miały własne cechy jak:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>saldo
+nazwa klienta
+...
+</pre></div>
+</div>
+<p>Na tym wprowadzeniu tego jeszcze nie zaprezentujemy, jednakże warto o tym pamiętać. Zwłaszcza, gdy będziecie Państwo kontynuować naukę we własnym zakresie.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="deklaracja-zmiennej">
+<h1>Deklaracja zmiennej<a class="headerlink" href="#deklaracja-zmiennej" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sprawdźmy co znajduje się pod x:</p>
+<p>Teraz zmieńmy tę wartość na coś innego:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sprawdźmy wartość:</p>
+<section id="funkcje-oraz-metody">
+<h2>Funkcje oraz Metody<a class="headerlink" href="#funkcje-oraz-metody" title="Permalink to this heading">#</a></h2>
+<p>Funkcje i metody to fragmenty kodu (zapisane gdzieś w innym miejscu), które mają jakąś funkcjonalność, tzn. wykonują ten kod w tle dla nas by dostarczyć konkretny wynik.</p>
+<p>Żeby wywołać funkcję, należy wykonać poniższą operację</p>
+<p><i><b>nazwa</b>(parametr_1,parametr_2,…,parametr_n)</i></p>
+<p>Wyróżniamy <b>funkcje wbudowane</b> i <b> funkcje zdefiniowane przez użytkownika</b>.</p>
+<p>Funkcje wbudowane są dostepne poprzez wywołanie ich nazwy wprost w kodzie (dostępne tu: <a class="reference external" href="https://docs.python.org/2/library/functions.html">https://docs.python.org/2/library/functions.html</a>).</p>
+<p>Inne funkcje możemy importować poprzez biblioteki programistyczne - rozszerzenia kodu.</p>
+<p>Istnieją również funkcje definiowane przez użytkownika, dzięki którym możemy tworzyć własne funkcjonalności</p>
+</section>
+<section id="pierwsza-funkcja">
+<h2>Pierwsza funkcja<a class="headerlink" href="#pierwsza-funkcja" title="Permalink to this heading">#</a></h2>
+<p>Pierwszą funkcją którą użyjemy będzie print(), jest to funkcja służąca do wyświetalnia <b> reprezentacji </b> obiektu</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="typy-zmiennych">
+<h1>Typy zmiennych<a class="headerlink" href="#typy-zmiennych" title="Permalink to this heading">#</a></h1>
+<p>To są typy wbudowane - klasy wbudowane</p>
+<p>Liczby</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Całkowite
+Zmiennoprzecinkowe
+</pre></div>
+</div>
+<p>Inne typy:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Typ tekstowy
+Typ logiczny
+</pre></div>
+</div>
+<p><b> Liczba całkowita </b> (int)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="druga-funkcja">
+<h2>Druga funkcja<a class="headerlink" href="#druga-funkcja" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p><b> Zmiennoprzecinkowa </b> (float)</p>
+<p><b> Tekst </b> (str)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><b> Typ logiczny</b> (bool)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<h1>Operatory binarne</h1>
+<p>Podstawowe operacje są zdefiniowane w Pythonie bez potrzeby korzystania z zewnętrznych bibliotek</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a + b
+a - b
+a * b
+a / b
+a // b (usuwa część po przecinku - floor-divide)
+a ** b
+a % b
+</pre></div>
+</div>
+<p>Suma typów liczbowych</p>
+<p>Różnica typów liczbowych</p>
+<p>Mnożenie typów liczbowych</p>
+<p>Dzielenie typów liczbowych</p>
+<p>Floor-divide</p>
+<p>**</p>
+<p>Modulo</p>
+<p>Operatory binarne na tekście</p>
+<section id="cwiczenie">
+<h3>Ćwiczenie:<a class="headerlink" href="#cwiczenie" title="Permalink to this heading">#</a></h3>
+<p>Jak sprawdzić czy 528 jest podzielne przez 3?</p>
+</section>
+<section id="id1">
+<h3>Ćwiczenie:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Używając tylko opeartorów binarnych na tekście osiągnij poniższy wzorzec używając symboli sym1 i sym2</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**__**
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span>
+<span class="n">g</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operatory-logiczne">
+<h3>Operatory logiczne<a class="headerlink" href="#operatory-logiczne" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a == b
+a != b
+a &lt;= b; a &lt; b
+a is b
+a is not b
+</pre></div>
+</div>
+<p>Równość</p>
+<p>Nierówność</p>
+</section>
+<section id="id2">
+<h3>Ćwiczenie:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Jeszcze raz, sprawdźmy czy 528 jest podzielne przez 3. Tym razem wynikiem ma być True lub False</p>
+</section>
+<section id="id3">
+<h3>Ćwiczenie:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Sprawdźmy nierówność z dwiema zmiennymi zawierającymi znaki tekstowe. Spróbujmy wykorzystać duże i małe litery oraz znaki specjalne. Jakie są wnioski?</p>
+<h1> Błędy </h1>
+<p>Gdy pojawi się w kodzie błąd, warto spojrzeć na to co go spowodowało, by znaleźć przyczynę</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;A&quot;</span> <span class="o">*</span> <span class="s2">&quot;B&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;A&quot;</span> <span class="o">*</span> <span class="s2">&quot;B&quot;</span>
+
+<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<h1> Importowanie bibliotek </h1>
+<p>Biblioteki zawierają dodatkowe funkcjonalności, klasy i typy danych.
+Biblioteki można importować na 3 sposoby:</p>
+<p>Cała biblioteka</p>
+<p>Wszystkie funkcje</p>
+<p>Jedna funkcja z biblioteki</p>
+</section>
+</section>
+<section id="id4">
+<h2>Ćwiczenie<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>Zaimportujmy pierwiastek z biblioteki math</p>
+<section id="gdy-uzywamy-nowej-nieznanej-nam-biblioteki-kluczowe-jest-poznanie-jej-dokumentacji">
+<h3>Gdy używamy nowej, nieznanej nam biblioteki - kluczowe jest poznanie jej dokumentacji<a class="headerlink" href="#gdy-uzywamy-nowej-nieznanej-nam-biblioteki-kluczowe-jest-poznanie-jej-dokumentacji" title="Permalink to this heading">#</a></h3>
+<p>Dokumentacja bilbioteki math: <a class="reference external" href="https://docs.python.org/2/library/math.html">https://docs.python.org/2/library/math.html</a></p>
+</section>
+<section id="jak-sprwadzic-czy-potrzebna-nam-funkcjonalnosc-juz-ktos-kiedys-napisal">
+<h3>Jak sprwadzić czy potrzebną nam funkcjonalność już ktoś kiedyś napisał?<a class="headerlink" href="#jak-sprwadzic-czy-potrzebna-nam-funkcjonalnosc-juz-ktos-kiedys-napisal" title="Permalink to this heading">#</a></h3>
+<p>Najlepiej użyć wyszukiwarki wpisując słowa kluczowe:</p>
+<p><i> Nazwa naszej funkcjnalności </i> + “Python”</p>
+<p>ewentualnie możemy dopisać “library”, żeby być pewnym że wyniki zwrócą nam bibliotekę</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="komentowanie-kodu">
+<h1>Komentowanie kodu<a class="headerlink" href="#komentowanie-kodu" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Komentujemy z wykorzystaniem pełnych zdań</p></li>
+<li><p>Upewnij się, że komentarz jest zrozumiały dla każdego, kto kiedykolwiek miałby przeczytać kod</p></li>
+</ul>
+<section id="komentarze-blokowe">
+<h2>Komentarze blokowe<a class="headerlink" href="#komentarze-blokowe" title="Permalink to this heading">#</a></h2>
+<p>Wplatane za pomocą znaku “#” na tym samym poziomie, do którego się odnoszą np:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># komentarz blokowy</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># dodajemy 2 do 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="komentarze-docstring">
+<h3>Komentarze “docstring”<a class="headerlink" href="#komentarze-docstring" title="Permalink to this heading">#</a></h3>
+<p>Wpisywane za pomocą potrójnego cudzysłowu (“””), używane do dokumentowania funkcji i klas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Przykład funkcji z komentarzem docstring</span>
+<span class="k">def</span> <span class="nf">funkcja</span><span class="p">(</span><span class="n">parametr1</span><span class="p">,</span> <span class="n">parametr2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Komentarz opisujący funkcję</span>
+<span class="sd">    Opis parametrów</span>
+<span class="sd">    Opis wyjścia</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1.%20Python%20%28podstawy%29%20-%20wprowadzenie.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1. Python - kurs wprowadzający</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3. Python - złożone typy danych</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Python - funkcje, zmienne i typy danych</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deklaracja-zmiennej">Deklaracja zmiennej</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje-oraz-metody">Funkcje oraz Metody</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsza-funkcja">Pierwsza funkcja</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-zmiennych">Typy zmiennych</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#druga-funkcja">Druga funkcja</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operatory-logiczne">Operatory logiczne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ćwiczenie:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ćwiczenie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gdy-uzywamy-nowej-nieznanej-nam-biblioteki-kluczowe-jest-poznanie-jej-dokumentacji">Gdy używamy nowej, nieznanej nam biblioteki - kluczowe jest poznanie jej dokumentacji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jak-sprwadzic-czy-potrzebna-nam-funkcjonalnosc-juz-ktos-kiedys-napisal">Jak sprwadzić czy potrzebną nam funkcjonalność już ktoś kiedyś napisał?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#komentowanie-kodu">Komentowanie kodu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komentarze-blokowe">Komentarze blokowe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#komentarze-docstring">Komentarze “docstring”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kamil Smolak
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
