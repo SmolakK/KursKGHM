@@ -1,0 +1,885 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Python - kurs wprowadzający &#8212; Kursy Python 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1. Python (podstawy) - wprowadzenie';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Python - funkcje, zmienne i typy danych" href="2.%20Python%20%28podstawy%29%20-%20funkcje%2C%20zmienne%20i%20typy%20danych.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    1. Python - kurs wprowadzający
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2.%20Python%20%28podstawy%29%20-%20funkcje%2C%20zmienne%20i%20typy%20danych.html">2. Python - funkcje, zmienne i typy danych</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html">3. Python - złożone typy danych</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4.%20Python%20%28podstawy%29%20-%20kontrola%20przep%C5%82ywu.html">4. Python (podstawy) - Kontrola przepływu</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%202.html">Zadania do części 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%203.html">Zadania do części 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%204.html">Zadania do części 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dodatek%201%20Jak%20pracowa%C4%87%20z%20Pythonem%20w%20domu.html">Dodatek 1. Jak uruchomić Pythona?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dodatek%202.%20Jak%20rozwi%C4%85zywa%C4%87%20problemy%20z%20kodem%20szybciej%20i%20lepiej.html">Dodatek 2. Jak rozwiązywać swoje problemy szybciej i lepiej?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1. Python (podstawy) - wprowadzenie.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/1. Python (podstawy) - wprowadzenie.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Python - kurs wprowadzający</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#co-to-jest-python-i-o-co-w-nim-chodzi">Co to jest Python i o co w nim chodzi?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jezyk-wysokiego-poziomu">Język wysokiego poziomu?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wady-i-zalety-pythona">Wady i zalety Pythona</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wady">Wady</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zalety">Zalety</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mozliwosci-pythona">Możliwości Pythona</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kilka-przykladow">Kilka przykładów</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rozpoznawanie-odrecznego-pisma">Rozpoznawanie odręcznego pisma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wizualizacja-funkcji">Wizualizacja funkcji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gra-zgadnij-film">Gra - zgadnij film</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nawet-prezentacje">A nawet prezentacje</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#to-tylko-niewielka-czesc-mozliwosci-wiele-uzywanych-przez-nas-narzedzi-jest-napisane-w-pythonie">To tylko niewielka część możliwości, wiele używanych przez nas narzędzi jest napisane w Pythonie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jak-dalej-rozwijac-swoje-umiejetnosci-w-programowaniu-w-pythonie">Jak dalej rozwijać swoje umiejętności w programowaniu w Pythonie?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-kurs-wprowadzajacy">
+<h1>1. Python - kurs wprowadzający<a class="headerlink" href="#python-kurs-wprowadzajacy" title="Permalink to this heading">#</a></h1>
+<p>Prowadzący kurs:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dr inż. Kamil Smolak
+</pre></div>
+</div>
+<p>Data: 09.03.2024</p>
+<p>Miejsce: Uniwersytet Przyrodniczy we Wrocławiu, Wrocław</p>
+<p>Kurs składa się z:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Wprowadzenia teoretycznego
+Omówienia jak pracować z Pythonem samemu w domu
+Środowiska programistyczne
+Typy danych i zmienne
+Kontrola przepływu w kodzie
+</pre></div>
+</div>
+<section id="co-to-jest-python-i-o-co-w-nim-chodzi">
+<h2>Co to jest Python i o co w nim chodzi?<a class="headerlink" href="#co-to-jest-python-i-o-co-w-nim-chodzi" title="Permalink to this heading">#</a></h2>
+<p>Python to prosty i potężny język programowania. Jest prosty w nauce i pozwala skupić się na problemie, nie problemie programowania. To język wysokiego poziomu.</p>
+<img src="python-logo-master-v3-TM.png"/></section>
+<section id="jezyk-wysokiego-poziomu">
+<h2>Język wysokiego poziomu?<a class="headerlink" href="#jezyk-wysokiego-poziomu" title="Permalink to this heading">#</a></h2>
+<p>Im język jest wyższego poziomu <b> tym bardziej zbliżony jest do języka naturalnego </b>.</p>
+<p>W praktyce oznacza to, że wiele operacji jest wykonywanych już za nas:</p>
+<ul>
+    <li>Zarządzanie pamięcią</li>
+    <li>Mapowanie typów zmiennych</li>
+    <li>Alokacja pamięci</li>
+</ul>
+<p>Dzięki czemu możemy zająć się problemem, który mamy rozwiązać, nie problemem programowania.</p>
+<img src="python-and-zope-an-introduction-may-2004-3-638.jpg"/></section>
+<section id="wady-i-zalety-pythona">
+<h2>Wady i zalety Pythona<a class="headerlink" href="#wady-i-zalety-pythona" title="Permalink to this heading">#</a></h2>
+<section id="wady">
+<h3>Wady<a class="headerlink" href="#wady" title="Permalink to this heading">#</a></h3>
+<p>Największą i najczęściej wymienianą wadą Pythona jest jego szybkość i wykorzystanie pamięci. <b> Python jest wolny i wymaga sporych zasobów </b></p>
+<img src="most-efficient.jpg"/></section>
+<section id="zalety">
+<h3>Zalety<a class="headerlink" href="#zalety" title="Permalink to this heading">#</a></h3>
+<p>Największą zaletą Pythona jest jego <b> popularność </b>. Ta zaleta pozwala na pokonanie wszystkich jego wad - również tych związanych z jego powolnością.</p>
+<p>Python ma niepodważalne zalety w postaci oszczędności kodu, łatwości zrozumienia, automatycznego zarządzania pamięcią, przenoszalności i czytelności. Dlatego też został wybrany przez ogromną liczbę programistów i deweloperów blibliotek.</p>
+<p>Dlatego jest też tak pożądany na rynku pracy.</p>
+</section>
+</section>
+<section id="mozliwosci-pythona">
+<h2>Możliwości Pythona<a class="headerlink" href="#mozliwosci-pythona" title="Permalink to this heading">#</a></h2>
+<p>Python używany jest w ogromnej liczbie zastosowań i ma bardzo dużo możliwości - głównie dzięki społeczności, która jego możliwości rozszerza. Przykłady wykorzystania Pythona:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Budowa stron internetowych
+Analiza danych (Data Science)
+Zastosowanie i rozwój algrytmów sztucznej inteligencji
+Zarządzanie danymi (bazy danych)
+Tworzenie gier komputerowych
+Edukacja
+
+Finanse (na przykład przewidywanie cen akcji na giełdzie)
+Budowa modeli językowych (jak ChatGPT)
+Analityka sportowa (przewidywanie wyników meczów, kontuzji zawodników)
+Tworzenie animacji
+</pre></div>
+</div>
+<p>i wiele, wiele więcej.</p>
+</section>
+<section id="kilka-przykladow">
+<h2>Kilka przykładów<a class="headerlink" href="#kilka-przykladow" title="Permalink to this heading">#</a></h2>
+<section id="rozpoznawanie-odrecznego-pisma">
+<h3>Rozpoznawanie odręcznego pisma<a class="headerlink" href="#rozpoznawanie-odrecznego-pisma" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">svm</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Training: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/799ce11292f6c943611e9e08857707e8b54380c260993f560fd01311f3643ad4.png" src="_images/799ce11292f6c943611e9e08857707e8b54380c260993f560fd01311f3643ad4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obraz_num</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">obraz_num</span><span class="p">]</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1378f8eab80&gt;
+</pre></div>
+</div>
+<img alt="_images/a2e564df4080dbfac8c7fd5765a60d70f2d1d0795be971d5cc4140415dd7d12c.png" src="_images/a2e564df4080dbfac8c7fd5765a60d70f2d1d0795be971d5cc4140415dd7d12c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">predicted</span><span class="p">[</span><span class="n">obraz_num</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="wizualizacja-funkcji">
+<h3>Wizualizacja funkcji<a class="headerlink" href="#wizualizacja-funkcji" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">visualize_function</span><span class="p">(</span><span class="n">func_text</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">num_points</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+    <span class="c1"># Generate x values</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">num_points</span><span class="p">)</span>
+
+    <span class="c1"># Evaluate the function</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">func_text</span><span class="p">)</span>
+
+    <span class="c1"># Plot the function</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;y = </span><span class="si">{</span><span class="n">func_text</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wykres funkcji y = </span><span class="si">{</span><span class="n">func_text</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">function_text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Podaj wzór funkcji do wizualizacji: &quot;</span><span class="p">)</span>
+<span class="n">visualize_function</span><span class="p">(</span><span class="n">function_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">function_text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Podaj wzór funkcji do wizualizacji: &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">visualize_function</span><span class="p">(</span><span class="n">function_text</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Anaconda3\lib\site-packages\ipykernel\kernelbase.py:1072,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span> <span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1066</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1067</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1069</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1070</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1071</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1072</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1073</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1074</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1075</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1076</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1077</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1078</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1079</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1080</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="gra-zgadnij-film">
+<h3>Gra - zgadnij film<a class="headerlink" href="#gra-zgadnij-film" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">imdb</span>
+
+<span class="n">ia</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">Cinemagoer</span><span class="p">()</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Matrix&#39;</span><span class="p">,</span><span class="s1">&#39;Godfather&#39;</span><span class="p">,</span><span class="s1">&#39;Heat&#39;</span><span class="p">,</span><span class="s1">&#39;Shawshank&#39;</span><span class="p">,</span><span class="s1">&#39;Fight Club&#39;</span><span class="p">,</span><span class="s1">&#39;Inception&#39;</span><span class="p">,</span><span class="s1">&#39;Interstellar&#39;</span><span class="p">]</span>
+<span class="n">movies_id</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">:</span>
+    <span class="n">movies_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ia</span><span class="o">.</span><span class="n">search_movie</span><span class="p">(</span><span class="n">name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">movieID</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_random_movie_poster</span><span class="p">():</span>
+    <span class="n">ia</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">Cinemagoer</span><span class="p">()</span>
+    <span class="n">mov_id</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">movies_id</span><span class="p">)</span>
+    <span class="n">movies_id</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">mov_id</span><span class="p">)</span>
+    <span class="n">random_movie</span> <span class="o">=</span> <span class="n">ia</span><span class="o">.</span><span class="n">get_movie</span><span class="p">(</span><span class="n">mov_id</span><span class="p">)</span>
+    <span class="n">poster_url</span> <span class="o">=</span> <span class="n">random_movie</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;cover url&#39;</span><span class="p">]</span>
+    <span class="n">movie_title</span> <span class="o">=</span> <span class="n">random_movie</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+    <span class="n">poster_url</span> <span class="o">=</span> <span class="n">random_movie</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;cover url&#39;</span><span class="p">]</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">poster_url</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span><span class="mi">500</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">movie_title</span>
+
+<span class="k">def</span> <span class="nf">guess_movie</span><span class="p">():</span>
+    <span class="n">correct_movie</span> <span class="o">=</span> <span class="n">get_random_movie_poster</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">correct_movie</span><span class="p">:</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zgadnij tytuł: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">correct_movie</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gratuluję!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wybacz, poprawna nazwa filmu to: </span><span class="si">{</span><span class="n">correct_movie</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Main game loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">guess_movie</span><span class="p">()</span>
+    <span class="n">play_again</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Gramy jeszcze raz? (tak/nie): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">play_again</span> <span class="o">!=</span> <span class="s2">&quot;tak&quot;</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6511f68d23fbff3bd654988cbefb2f922b2c40ffaa34c640f2718fac6d5a95df.png" src="_images/6511f68d23fbff3bd654988cbefb2f922b2c40ffaa34c640f2718fac6d5a95df.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zgadnij tytuł: Shawshank
+Wybacz, poprawna nazwa filmu to: The Shawshank Redemption.
+Gramy jeszcze raz? (tak/nie): nie
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-nawet-prezentacje">
+<h3>A nawet prezentacje<a class="headerlink" href="#a-nawet-prezentacje" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">manim</span>
+<span class="kn">from</span> <span class="nn">manim</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">config</span><span class="o">.</span><span class="n">media_width</span> <span class="o">=</span> <span class="s2">&quot;100%&quot;</span>
+<span class="n">config</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">=</span> <span class="s2">&quot;WARNING&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Manim Community <span style="color: #008000; text-decoration-color: #008000">v0.16.0.post0</span>
+
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">manim</span> -qh BooleanOperations
+
+class BooleanOperations(Scene):
+    def construct(self):
+        ellipse1 = Ellipse(
+            width=4.0, height=5.0, fill_opacity=0.5, color=BLUE, stroke_width=10
+        ).move_to(LEFT)
+        ellipse2 = ellipse1.copy().set_color(color=RED).move_to(RIGHT)
+        bool_ops_text = MarkupText(&quot;&lt;u&gt;Operacje logiczne&lt;/u&gt;&quot;).next_to(ellipse1, UP * 3)
+        ellipse_group = Group(bool_ops_text, ellipse1, ellipse2).move_to(LEFT * 3)
+        self.play(FadeIn(ellipse_group))
+
+        i = Intersection(ellipse1, ellipse2, color=GREEN, fill_opacity=0.5)
+        self.play(i.animate.scale(0.25).move_to(RIGHT * 5 + UP * 2.5))
+        intersection_text = Text(&quot;Przecięcie&quot;, font_size=23).next_to(i, UP)
+        self.play(FadeIn(intersection_text))
+
+        u = Union(ellipse1, ellipse2, color=ORANGE, fill_opacity=0.5)
+        union_text = Text(&quot;Suma&quot;, font_size=23)
+        self.play(u.animate.scale(0.3).next_to(i, DOWN, buff=union_text.height * 3))
+        union_text.next_to(u, UP)
+        self.play(FadeIn(union_text))
+
+        e = Exclusion(ellipse1, ellipse2, color=YELLOW, fill_opacity=0.5)
+        exclusion_text = Text(&quot;Różnica symetryczna&quot;, font_size=23)
+        self.play(e.animate.scale(0.3).next_to(u, DOWN, buff=exclusion_text.height * 3.5))
+        exclusion_text.next_to(e, UP)
+        self.play(FadeIn(exclusion_text))
+
+        d = Difference(ellipse1, ellipse2, color=PINK, fill_opacity=0.5)
+        difference_text = Text(&quot;Różnica&quot;, font_size=23)
+        self.play(d.animate.scale(0.3).next_to(u, LEFT, buff=difference_text.height * 3.5))
+        difference_text.next_to(d, UP)
+        self.play(FadeIn(difference_text))
+        
+        self.wait(10)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                                                                       
+</pre></div>
+</div>
+<div class="output text_html"><video src="media\jupyter\BooleanOperations@2024-03-07@17-18-03.mp4" controls autoplay loop style="max-width: 100%;"  >
+      Your browser does not support the <code>video</code> element.
+    </video></div></div>
+</div>
+</section>
+<section id="to-tylko-niewielka-czesc-mozliwosci-wiele-uzywanych-przez-nas-narzedzi-jest-napisane-w-pythonie">
+<h3>To tylko niewielka część możliwości, wiele używanych przez nas narzędzi jest napisane w Pythonie<a class="headerlink" href="#to-tylko-niewielka-czesc-mozliwosci-wiele-uzywanych-przez-nas-narzedzi-jest-napisane-w-pythonie" title="Permalink to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Amazon
+Facebook
+Spotify
+Netfilx
+ChatGPT
+...
+</pre></div>
+</div>
+<h2> Do każdego modułu dostępne są listy ćwiczeń, które możecie wykonać we własnym zakresie w domu </h2>
+<p>Ta prezentacja i reszta jest dostępna online pod linkiem: <a class="reference external" href="https://smolakk.github.io/KursKGHM/">https://smolakk.github.io/KursKGHM/</a>
+lub poniższym QR kodem:</p>
+<img src='frame.png'/><p>Niezbędna będzie instalacja Pythona i środowiska programistycznego (tego, w którym jest ta prezentacja).</p>
+<p>Instrukcje jak korzystać z Pythona lub zainstalować samemu Pythona na swoim komputerze dostępne są w module “Instalacja Pythona”</p>
+</section>
+</section>
+<section id="jak-dalej-rozwijac-swoje-umiejetnosci-w-programowaniu-w-pythonie">
+<h2>Jak dalej rozwijać swoje umiejętności w programowaniu w Pythonie?<a class="headerlink" href="#jak-dalej-rozwijac-swoje-umiejetnosci-w-programowaniu-w-pythonie" title="Permalink to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Wykonywanie przekazanych przez nas zadań oraz materiałów
+Wykonanie interaktywnych kursów online, np. codeacademy
+Trening poprzez rywalizację w rozwiązywaniu problemów programistycznych: leetcode.com lub hackerrank.com
+</pre></div>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="2.%20Python%20%28podstawy%29%20-%20funkcje%2C%20zmienne%20i%20typy%20danych.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Python - funkcje, zmienne i typy danych</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#co-to-jest-python-i-o-co-w-nim-chodzi">Co to jest Python i o co w nim chodzi?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jezyk-wysokiego-poziomu">Język wysokiego poziomu?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wady-i-zalety-pythona">Wady i zalety Pythona</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wady">Wady</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zalety">Zalety</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mozliwosci-pythona">Możliwości Pythona</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kilka-przykladow">Kilka przykładów</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rozpoznawanie-odrecznego-pisma">Rozpoznawanie odręcznego pisma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wizualizacja-funkcji">Wizualizacja funkcji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gra-zgadnij-film">Gra - zgadnij film</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nawet-prezentacje">A nawet prezentacje</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#to-tylko-niewielka-czesc-mozliwosci-wiele-uzywanych-przez-nas-narzedzi-jest-napisane-w-pythonie">To tylko niewielka część możliwości, wiele używanych przez nas narzędzi jest napisane w Pythonie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jak-dalej-rozwijac-swoje-umiejetnosci-w-programowaniu-w-pythonie">Jak dalej rozwijać swoje umiejętności w programowaniu w Pythonie?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kamil Smolak
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
