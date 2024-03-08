@@ -1,0 +1,1062 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Python (podstawy) - Kontrola przepływu &#8212; Kursy Python 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '4. Python (podstawy) - kontrola przepływu';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Zadania do części 2" href="Zadania%20do%20cz%C4%99%C5%9Bci%202.html" />
+    <link rel="prev" title="3. Python - złożone typy danych" href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="1.%20Python%20%28podstawy%29%20-%20wprowadzenie.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="1.%20Python%20%28podstawy%29%20-%20wprowadzenie.html">
+                    1. Python - kurs wprowadzający
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2.%20Python%20%28podstawy%29%20-%20funkcje%2C%20zmienne%20i%20typy%20danych.html">2. Python - funkcje, zmienne i typy danych</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html">3. Python - złożone typy danych</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Python (podstawy) - Kontrola przepływu</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%202.html">Zadania do części 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%203.html">Zadania do części 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Zadania%20do%20cz%C4%99%C5%9Bci%204.html">Zadania do części 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dodatek%201%20Jak%20pracowa%C4%87%20z%20Pythonem%20w%20domu.html">Dodatek 1. Jak uruchomić Pythona?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dodatek%202.%20Jak%20rozwi%C4%85zywa%C4%87%20problemy%20z%20kodem%20szybciej%20i%20lepiej.html">Dodatek 2. Jak rozwiązywać swoje problemy szybciej i lepiej?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F4. Python (podstawy) - kontrola przepływu.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/4. Python (podstawy) - kontrola przepływu.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4. Python (podstawy) - Kontrola przepływu</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Python (podstawy) - Kontrola przepływu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wciecia">Wcięcia</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrola-przeplywu-if-elif-else">Kontrola przepływu - if, elif, else</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#najprostsza-konstrukcja">Najprostsza konstrukcja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie">Ćwiczenie:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykorzystanie-elif">Wykorzystanie elif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytanie">Pytanie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykorzystanie-else">Wykorzystanie else</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ćwiczenie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie-cz-2">Ćwiczenie cz. 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracje-petla-for-i-while-na-sekwencjach">Iteracje - pętla for i while (na sekwencjach)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#petle-for">Pętle for</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wszystko-co-nie-jest-wciete-jako-kod-podrzedny-wykonuje-sie-po-petli">Wszystko co nie jest wcięte jako kod podrzędny - wykonuje się po pętli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ćwiczenie:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#petla-while">Pętla while</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ćwiczenie:</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-podstawy-kontrola-przeplywu">
+<h1>4. Python (podstawy) - Kontrola przepływu<a class="headerlink" href="#python-podstawy-kontrola-przeplywu" title="Permalink to this heading">#</a></h1>
+<p>Często spotkamy się z potrzebą kontroli naszego kodu, kiedy to będziemy chcieli żeby:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Jakaś operacja wykonała się tylko wtedy kiedy tego oczekujemy
+
+LUB
+
+Jakaś operacja wykonała się wielokrotnie
+</pre></div>
+</div>
+<p>I do tego służą właśnie instrukcje kontroli przepływu, które teraz poznamy</p>
+<section id="wciecia">
+<h2>Wcięcia<a class="headerlink" href="#wciecia" title="Permalink to this heading">#</a></h2>
+<p>Instrukcje kontroli przepływu wymagają od nas wykorzystania wcięć w kodzie. Wcięcia informują język, że kod wcięty jest <b> podrzędny </b> do kodu względem tego który jest ponad nim.</p>
+<p>Wcięcia składają się z 4 spacji (lub Tab), czyli taki kod, który zależny jest od tego, który w hierarchi znajduje się ponad nim.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kod</span> <span class="n">nadrzędny</span>
+    <span class="n">kod</span> <span class="n">podrzędny</span>
+</pre></div>
+</div>
+<p>Możliwe jest wielopoziomowe zagnieżdżanie kodu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kod</span> <span class="n">nadrzędny</span>
+    <span class="n">kod</span> <span class="n">podrzędny_1stopien</span>
+        <span class="n">kod</span> <span class="n">podrzędny_2stopien</span>
+</pre></div>
+</div>
+<p>W powyższym przykładzie kod podrzędny 1 stopnia będzie nadrzędny względem kodu podrzędnego 2 stopnia.</p>
+<p>Wcięcia są bardzo ważną składową Pythona i dbają o porządek i łatwość czytania kodu. Są niezbędne w metodach kontroli przepływu danych.</p>
+<p><b> Koniec wcięcia zwykle oznacza koniec wykonywanej instrukcji i zmienia sposób wykonywania kodu! </b></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kontrola-przeplywu-if-elif-else">
+<h1>Kontrola przepływu - if, elif, else<a class="headerlink" href="#kontrola-przeplywu-if-elif-else" title="Permalink to this heading">#</a></h1>
+<p>Skoro już wiemy po co są wcięcia kodu, spójrzmy na <b> pierwszy </b> sposób kontroli przepływu.
+Instrukcje warunkowe if służą do kontroli przepływu poprzez narzucanie warunków na kod.</p>
+<p>if <i> warunek </i>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rób coś
+</pre></div>
+</div>
+<p>elif <i> warunek </i>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rób coś
+</pre></div>
+</div>
+<p>else:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rób coś
+</pre></div>
+</div>
+<section id="najprostsza-konstrukcja">
+<h2>Najprostsza konstrukcja<a class="headerlink" href="#najprostsza-konstrukcja" title="Permalink to this heading">#</a></h2>
+<p><i> warunek </i> <b> musi </b> być zmienną o typie bool (typem logicznym)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
+</pre></div>
+</div>
+</div>
+</div>
+<p>W warunku może być wstawione coś co zwróci typ logiczny:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">2</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cwiczenie">
+<h2>Ćwiczenie:<a class="headerlink" href="#cwiczenie" title="Permalink to this heading">#</a></h2>
+<p>Czy poniższy kod zwróci literę “A”?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
+</pre></div>
+</div>
+</div>
+</div>
+<section id="wykorzystanie-elif">
+<h3>Wykorzystanie elif<a class="headerlink" href="#wykorzystanie-elif" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">2</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dwa jest wieksze od trzech&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="mi">2</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dwa jest mniejsze od trzech&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dwa jest mniejsze od trzech
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">b</span><span class="o">&gt;</span><span class="n">a</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IF&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">c</span><span class="o">&gt;</span><span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ELIF&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IF
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">b</span><span class="o">&gt;</span><span class="n">a</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IF&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">c</span><span class="o">&gt;</span><span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ELIF&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IF
+ELIF
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pytanie">
+<h3>Pytanie:<a class="headerlink" href="#pytanie" title="Permalink to this heading">#</a></h3>
+<p>Jaka jest różnica między powyższymi operacjami?</p>
+</section>
+<section id="wykorzystanie-else">
+<h3>Wykorzystanie else<a class="headerlink" href="#wykorzystanie-else" title="Permalink to this heading">#</a></h3>
+<p>Wykonuje się, gdy wszystkie inne powyższe warunki nie zostaną spełnione</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;Python&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To się nie wykona&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="s2">&quot;b&quot;</span> <span class="ow">in</span> <span class="s2">&quot;Python&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;to też&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Więc wykona się to&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Więc wykona się to
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="s2">&quot;Python&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To się nie wykona&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="s2">&quot;b&quot;</span> <span class="ow">in</span> <span class="s2">&quot;Python&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;to też&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="s2">&quot;c&quot;</span> <span class="ow">in</span> <span class="s1">&#39;Python&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i to też&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Więc wykona się to&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Więc wykona się to
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zasady:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>każdy &#39;if&#39; zaczyna nową instrukcję warunkową - jeden na instrukcję
+&#39;elif&#39; może pojawić się wielokrotnie
+&#39;else&#39; może być tylko jeden
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>Ćwiczenie<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Co zostanie zwrócone przez poniższą funkcję?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if 4&gt;10:
+    print(&quot;A&quot;)
+elif 10%5 != 0:
+    print(&quot;B&quot;)
+elif 2**3 &gt; 7:
+    print(&quot;C&quot;)
+elif 10&gt;1:
+    print(&quot;D&quot;)
+</pre></div>
+</div>
+</section>
+<section id="cwiczenie-cz-2">
+<h2>Ćwiczenie cz. 2<a class="headerlink" href="#cwiczenie-cz-2" title="Permalink to this heading">#</a></h2>
+<p>Co zostanie zwrócone przez poniższą funkcję?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if 5//2 == 2.5:
+    print(&quot;A&quot;)
+else &quot;2&quot; + &quot;2&quot; == 4:
+    print(&quot;B&quot;)
+if len(set([1,2,3,1,2,3])) &gt; 5:
+    print(&quot;C&quot;)
+elif False &lt; 1:
+    print(&quot;D&quot;)
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="iteracje-petla-for-i-while-na-sekwencjach">
+<h1>Iteracje - pętla for i while (na sekwencjach)<a class="headerlink" href="#iteracje-petla-for-i-while-na-sekwencjach" title="Permalink to this heading">#</a></h1>
+<p>Kolejną instrukcją kontrolującą przepływ jest pętla. <b> Pozwala ona wykonać tę samą operację wielokrotnie </b>.</p>
+<p>Pętle tworzą tzw. iteratory, które iterują się przez sekwencję zwracając każdorazowo <b>kolejne</b> elementy. Mamy dwa wariatny pętli:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for
+while
+</pre></div>
+</div>
+<section id="petle-for">
+<h2>Pętle for<a class="headerlink" href="#petle-for" title="Permalink to this heading">#</a></h2>
+<p>Jej konstrukcja jest nastepująca</p>
+<p>for <i>nazwa_iteratora</i> in <i>nazwa_sekwencji</i>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rób coś
+</pre></div>
+</div>
+<p><b> Zwróć uwagę na wcięcie w składni </b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s2">&quot;Python&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+y
+t
+h
+o
+n
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tekst</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tekst</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+a
+y
+a
+t
+a
+h
+a
+o
+a
+n
+a
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tekst</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tekst</span><span class="p">[:</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+y
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wewnątrz pętli można wykonywać operacje:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<section id="wszystko-co-nie-jest-wciete-jako-kod-podrzedny-wykonuje-sie-po-petli">
+<h3>Wszystko co nie jest wcięte jako kod podrzędny - wykonuje się po pętli<a class="headerlink" href="#wszystko-co-nie-jest-wciete-jako-kod-podrzedny-wykonuje-sie-po-petli" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TO WYKONA SIĘ PO PĘTLI&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+4
+5
+TO WYKONA SIĘ PO PĘTLI
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TO WYKONA SIĘ WEWNĄTRZ PĘTLI&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a to już na końcu&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+TO WYKONA SIĘ WEWNĄTRZ PĘTLI
+3
+TO WYKONA SIĘ WEWNĄTRZ PĘTLI
+4
+TO WYKONA SIĘ WEWNĄTRZ PĘTLI
+5
+TO WYKONA SIĘ WEWNĄTRZ PĘTLI
+a to już na końcu
+</pre></div>
+</div>
+</div>
+</div>
+<p>Iterować w <b> for </b> możemy się po:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>typach sekwencyjnych - tekst, lista, krotka, zbiór, słownik
+funkcji range()
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+5
+7
+9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lista</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#slownik</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Ćwiczenie:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Co zwróci poniższy kod?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for i in range(1,20):
+    if i%2 == 0:
+        print(i)
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Ćwiczenie:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Jak będzie wartość zmiennej ‘licznik’ po wykonaniu całego kodu?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>licznik = 0
+
+for n in [0,1,2]:
+    for k in [0,1,2]:
+        licznik = licznik + 1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="petla-while">
+<h2>Pętla while<a class="headerlink" href="#petla-while" title="Permalink to this heading">#</a></h2>
+<p>Pętla for wykonuje się dopóki sekwencja nie dobiegnie końca. Pętla while wykonuje się dopóki podany warunek jest spełniony.</p>
+<p>Konstrukcja</p>
+<p>while <i> warunek </i>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>~rób coś~
+</pre></div>
+</div>
+<p>Należy uważać, gdyż warunek może nie zostać spełniony nigdy, a kod utknie w pętli!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="c1">#12, 11</span>
+    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">#11, 10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">#11, 10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>Ćwiczenie:<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>Który kod będzie poprawnym rozwiązaniem zadania “Napisz kod, który zwiększa liczbę, dopóki nie będzie ona podzielna przez 5? Zdefiniuj liczbę jako n = 1”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A.
+n = 1
+while n%5 == 0:
+    n += 1
+    
+B.
+n = 1
+while n%5 != 0:
+    n += 1
+    
+C.
+n = 1
+while True:
+    if n % 5 == 0:
+        print(n)
+        
+D.
+n = 1
+for n in range(10):
+    n += 1
+    if n % 5 == 0:
+        print(n)
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3.%20Python%20%28podstawy%29%20-%20z%C5%82o%C5%BCone%20typy%20danych.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3. Python - złożone typy danych</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Zadania%20do%20cz%C4%99%C5%9Bci%202.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Zadania do części 2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Python (podstawy) - Kontrola przepływu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wciecia">Wcięcia</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kontrola-przeplywu-if-elif-else">Kontrola przepływu - if, elif, else</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#najprostsza-konstrukcja">Najprostsza konstrukcja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie">Ćwiczenie:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykorzystanie-elif">Wykorzystanie elif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytanie">Pytanie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wykorzystanie-else">Wykorzystanie else</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ćwiczenie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie-cz-2">Ćwiczenie cz. 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracje-petla-for-i-while-na-sekwencjach">Iteracje - pętla for i while (na sekwencjach)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#petle-for">Pętle for</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wszystko-co-nie-jest-wciete-jako-kod-podrzedny-wykonuje-sie-po-petli">Wszystko co nie jest wcięte jako kod podrzędny - wykonuje się po pętli</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ćwiczenie:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ćwiczenie:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#petla-while">Pętla while</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ćwiczenie:</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kamil Smolak
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
