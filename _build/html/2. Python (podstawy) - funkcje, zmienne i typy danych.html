@@ -35,6 +35,17 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/vendor/fontawesome/6.1.2/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -54,6 +65,25 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/copybutton_funcs.js"></script>
+    <script src="_static/design-tabs.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/documentation_options.js"></script>
+    <script src="_static/jquery-3.6.0.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/sphinx-thebe.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/underscore-1.13.1.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/scripts/bootstrap.js"></script>
+    <script src="_static/scripts/pydata-sphinx-theme.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -377,11 +407,15 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Python - funkcje, zmienne i typy danych</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deklaracja-zmiennej">Deklaracja zmiennej</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje-oraz-metody">Funkcje oraz Metody</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsza-funkcja">Pierwsza funkcja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsza-funkcja">Pierwsza funkcja</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje-wbudowane">Funkcje wbudowane</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-zmiennych">Typy zmiennych</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#druga-funkcja">Druga funkcja</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#druga-funkcja">Druga funkcja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytanie">Pytanie:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie">Ćwiczenie:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ćwiczenie:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operatory-logiczne">Operatory logiczne</a></li>
@@ -475,6 +509,10 @@ nazwa klienta
 </div>
 </div>
 </div>
+<section id="funkcje-wbudowane">
+<h3>Funkcje wbudowane<a class="headerlink" href="#funkcje-wbudowane" title="Permalink to this heading">#</a></h3>
+<p>Funkcje wbudowane to funkcje, które są dostępne od razu, gdy tylko rozpoczniemy pisanie kodu. Zwykle są to podstawowe funkcjonalności, które muszą zawsze być pod ręką. Ich lista znajduje się tutaj: <a class="reference external" href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a></p>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="typy-zmiennych">
@@ -506,13 +544,15 @@ Typ logiczny
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</div>
+<p><b> Zmiennoprzecinkowa </b> (float)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">2.2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><b> Zmiennoprzecinkowa </b> (float)</p>
 <p><b> Tekst </b> (str)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,8 +568,118 @@ Typ logiczny
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</div>
+<h1> Rzutowanie typów </h1>
+To zmiana typu danej na inną.
+<p>Do tego wykorzystujemy funkcji wbudowanych, które mają taką samą nazwę jak typ zmiennej w Pythonie</p>
+<p>Sprawdźmy najpierw typ zmiennych używając funkcji wbudowanej type()</p>
+<p>Liczba całkowita</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Liczba zmiennoprzecinkowa</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">3.4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Liczba złożona</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">3</span><span class="n">j</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tekst</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;Tekst&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Typ logiczny</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oczywiście możemy sprawdzać tak typ zmiennej:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rzutowanie typów zatem odbywa się wprost:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.88</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ale zwróćmy uwagę, że:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.88</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.88</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#PAMIĘTAJ O ZAPISANIU DO ZMIENNEJ</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rzutowanie tekstu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">122</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pytanie">
+<h2>Pytanie:<a class="headerlink" href="#pytanie" title="Permalink to this heading">#</a></h2>
+<p>Rzutowanie na typ logiczny:</p>
+<p>Co zwróci rzutowanie zera na typ logiczny?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -597,16 +747,6 @@ a is not b
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;A&quot;</span> <span class="o">*</span> <span class="s2">&quot;B&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [16],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;A&quot;</span> <span class="o">*</span> <span class="s2">&quot;B&quot;</span>
-
-<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;str&#39;
 </pre></div>
 </div>
 </div>
@@ -739,11 +879,15 @@ Biblioteki można importować na 3 sposoby:</p>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Python - funkcje, zmienne i typy danych</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deklaracja-zmiennej">Deklaracja zmiennej</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje-oraz-metody">Funkcje oraz Metody</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsza-funkcja">Pierwsza funkcja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwsza-funkcja">Pierwsza funkcja</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funkcje-wbudowane">Funkcje wbudowane</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#typy-zmiennych">Typy zmiennych</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#druga-funkcja">Druga funkcja</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#druga-funkcja">Druga funkcja</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytanie">Pytanie:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cwiczenie">Ćwiczenie:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ćwiczenie:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operatory-logiczne">Operatory logiczne</a></li>
